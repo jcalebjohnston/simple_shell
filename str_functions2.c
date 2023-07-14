@@ -83,3 +83,37 @@ char *_strncat(char *dest, char *src, int n)
 		dest[ite] = '\0';
 	return (s);
 }
+
+/**
+ *_atoi - A program that converts a string to an integer
+ *@s: The string to be converted
+ *Return: 0 if no numbers in string, converted number otherwise
+ */
+
+int _atoi(char *s)
+{
+	int t, sign = 1, flag = 0, product;
+	unsigned int result = 0;
+
+	for (t = 0;  s[t] != '\0' && flag != 2; t++)
+	{
+		if (s[t] == '-')
+			sign *= -1;
+
+		if (s[t] >= '0' && s[t] <= '9')
+		{
+			flag = 1;
+			result *= 10;
+			result += (s[t] - '0');
+		}
+		else if (flag == 1)
+			flag = 2;
+	}
+
+	if (sign == -1)
+		product = -result;
+	else
+		product = result;
+
+	return (product);
+}
