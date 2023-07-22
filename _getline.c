@@ -3,7 +3,7 @@
  * _getline - A function that reads a line from standard input
  *
  * Return: On success, returns a pointer to the read line.
- * On failure or when there's nothing more to read, returns NULL.
+ * On failure or when there's nothing more to read, return NULL.
  */
 char *_getline(void)
 {
