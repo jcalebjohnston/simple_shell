@@ -29,7 +29,7 @@ while (1)
 		if (buffer[t] == '\n')
 			break;
 	}
-	line = realloc(line, line_size, new_line_size);
+	line = my_realloc(line, line_size, new_line_size);
 	if (line == NULL)
 		return (NULL);
 	for (t = 0; buffer_pos < bytes_read && buffer[buffer_pos] != '\n'; t++)
