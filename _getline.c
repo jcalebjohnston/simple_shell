@@ -11,7 +11,7 @@ char *_getline(void)
     static ssize_t buffer_pos = 0,bytes_read = 0;
 
     char *line = NULL;
-    ssize_t line_size = 0, t = 0;
+    ssize_t line_size = 0, t = 0, line_len, new_line_size;
 
     while (1)
     {
@@ -27,8 +27,8 @@ char *_getline(void)
             if (buffer[t] == '\n')
                 break;
         }
-        ssize_t line_len = t - buffer_pos;
-        ssize_t new_line_size = line_size + line_len + 1;
+        line_len = t - buffer_pos;
+        new_line_size = line_size + line_len + 1;
 
         line = realloc(line, new_line_size);
         if (line == NULL)
