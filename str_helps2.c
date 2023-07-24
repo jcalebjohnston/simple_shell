@@ -8,17 +8,17 @@
  */
 int custom_strspn(char *main_str, char *sub_str)
 {
-    int index = 0;
-    int matched_bytes = 0;
+int index = 0;
+int matched_bytes = 0;
 
-    while (main_str[index] != '\0')
-    {
-        if (custom_strchr(sub_str, main_str[index]) == NULL)
-            break;
-        matched_bytes++;
-        index++;
-    }
-    return (matched_bytes);
+while (main_str[index] != '\0')
+{
+	if (custom_strchr(sub_str, main_str[index]) == NULL)
+		break;
+	matched_bytes++;
+	index++;
+}
+return (matched_bytes);
 }
 
 /**
@@ -30,17 +30,17 @@ int custom_strspn(char *main_str, char *sub_str)
  */
 int custom_strcmp(char *s1, char *s2)
 {
-    int index = 0;
+int index = 0;
 
-    while (s1[index])
-    {
-        if (s1[index] != s2[index])
-        {
-            break;
-        }
-        index++;
-    }
-    return (s1[index] - s2[index]);
+while (s1[index])
+{
+	if (s1[index] != s2[index])
+	{
+		break;
+	}
+	index++;
+}
+return (s1[index] - s2[index]);
 }
 
 /**
@@ -52,15 +52,15 @@ int custom_strcmp(char *s1, char *s2)
  */
 int custom_strcspn(char *s1, char *s2)
 {
-    int length = 0, index;
+int length = 0, index;
 
-    for (index = 0; s1[index] != '\0'; index++)
-    {
-        if (custom_strchr(s2, s1[index]) != NULL)
-            break;
-        length++;
-    }
-    return (length);
+for (index = 0; s1[index] != '\0'; index++)
+{
+	if (custom_strchr(s2, s1[index]) != NULL)
+		break;
+	length++;
+}
+return (length);
 }
 
 /**
@@ -72,18 +72,18 @@ int custom_strcspn(char *s1, char *s2)
  */
 char *custom_strchr(char *s1, char s2)
 {
-    int index;
+int index;
 
-    for (index = 0; s1[index] != s2 && s1[index]; index++)
-    {
-        ;
-    }
-    if (s1[index] == s2)
-    {
-        return (s1 + index);
-    }
-    else
-        return (NULL);
+for (index = 0; s1[index] != s2 && s1[index]; index++)
+{
+	;
+}
+if (s1[index] == s2)
+{
+	return (s1 + index);
+}
+else
+	return (NULL);
 }
 
 /**
@@ -95,17 +95,17 @@ char *custom_strchr(char *s1, char s2)
  */
 char *custom_strcat(char *str1, char *str2)
 {
-    char *cat_str = NULL;
-    int length_1 = str_length(str1), length_2 = str_length(str2);
+char *cat_str = NULL;
+int length_1 = str_length(str1), length_2 = str_length(str2);
 
-    cat_str = malloc(sizeof(*cat_str) * (length_1 + length_2 + 1));
-    if (!cat_str)
-    {
-        return (NULL);
-    }
-    string_copy(str1, cat_str);
-    string_copy(str2, cat_str + length_1);
-    cat_str[length_1 + length_2] = '\0';
+cat_str = malloc(sizeof(*cat_str) * (length_1 + length_2 + 1));
+if (!cat_str)
+{
+	return (NULL);
+}
+string_copy(str1, cat_str);
+string_copy(str2, cat_str + length_1);
+cat_str[length_1 + length_2] = '\0';
 
-    return (cat_str);
+return (cat_str);
 }

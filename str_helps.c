@@ -9,40 +9,41 @@
  */
 char *my_strtok(char *string, char *delim, char **save_ptr)
 {
-        char *end;
+char *end;
 
-        if (string == NULL)
-        {
-                string = *save_ptr;
-        }
-
-        if (*string == '\0')
-        {
-                *save_ptr = string;
-                return (NULL);
-        }
-
-        string += custom_strspn(string, delim);
-
-        if (*string == '\0')
-        {
-                *save_ptr = string;
-                return (NULL);
-        }
-
-        end = string + custom_strcspn(string, delim);
-
-        if (*end == '\0')
-        {
-                *save_ptr = end;
-                return (string);
-        }
-
-        *end = '\0';
-        *save_ptr = end + 1;
-
-        return (string);
+if (string == NULL)
+{
+	string = *save_ptr;
 }
+
+if (*string == '\0')
+{
+	*save_ptr = string;
+	return (NULL);
+}
+
+string += custom_strspn(string, delim);
+
+if (*string == '\0')
+{
+	*save_ptr = string;
+	return (NULL);
+}
+
+end = string + custom_strcspn(string, delim);
+
+if (*end == '\0')
+{
+	*save_ptr = end;
+	return (string);
+}
+
+*end = '\0';
+*save_ptr = end + 1;
+
+return (string);
+}
+
 /**
  * my_realloc - A function that reallocates a memory block for other use.
  * @ptr: Pointer to a previously allocated memory block.
@@ -53,37 +54,37 @@ char *my_strtok(char *string, char *delim, char **save_ptr)
  */
 void *my_realloc(void *ptr, size_t old_size, size_t new_size)
 {
-        void *new_ptr;
-        size_t ind;
+void *new_ptr;
+size_t ind;
 
-        if (ptr == NULL)
-        {
-                new_ptr = malloc(new_size);
-                return (new_ptr);
-        }
-        else if (new_size == old_size)
-        {
-                return (ptr);
-        }
-        else if (new_size == 0 && ptr != NULL)
-        {
-                free(ptr);
-                return (NULL);
-        }
-        else
-        {
-                new_ptr = malloc(new_size);
-                if (new_ptr != NULL)
-                {
-                        for (ind = 0; ind < min(old_size, new_size); ind++)
-                                *((char *)new_ptr + ind) = *((char *)ptr + ind);
-                        free(ptr);
+if (ptr == NULL)
+{
+	new_ptr = malloc(new_size);
+	return (new_ptr);
+}
+else if (new_size == old_size)
+{
+	return (ptr);
+}
+else if (new_size == 0 && ptr != NULL)
+{
+	free(ptr);
+	return (NULL);
+}
+else
+{
+	new_ptr = malloc(new_size);
+	if (new_ptr != NULL)
+	{
+		for (ind = 0; ind < min(old_size, new_size); ind++)
+		*((char *)new_ptr + ind) = *((char *)ptr + ind);
+		free(ptr);
 
-                        return (new_ptr);
-                }
-                else
-                        return (NULL);
-        }
+		return (new_ptr);
+	}
+	else
+		return (NULL);
+}
 }
 /**
  * handle_ctrl_c - A function that handles the signal -> CTRL-C
@@ -93,10 +94,10 @@ void *my_realloc(void *ptr, size_t old_size, size_t new_size)
  */
 void handle_ctrl_c(int signum)
 {
-        if (signum == SIGINT)
-        {
-                print_to_stdout("\n:) ");
-        }
+if (signum == SIGINT)
+{
+	print_to_stdout("\n:) ");
+}
 }
 /**
  * _atoi - A program that changes a char to int
@@ -106,28 +107,28 @@ void handle_ctrl_c(int signum)
  */
 int _atoi(char *s)
 {
-        size_t ints = 0;
+size_t ints = 0;
 
-        do {
-                if (*s == '-')
-                {
-                        return (-1);
-                }
-                else if ((*s < '0' || *s > '9') && *s != '\0')
-                {
-                        return (-1);
-                }
-                else if (*s >= '0'  && *s <= '9')
-                {
-                        ints = (ints * 10) + (*s - '0');
-                }
-                else if (ints > 0)
-                {
-                        break;
-                }
-        } while (*s++);
+do {
+	if (*s == '-')
+	{
+		return (-1);
+	}
+	else if ((*s < '0' || *s > '9') && *s != '\0')
+	{
+		return (-1);
+	}
+	else if (*s >= '0'  && *s <= '9')
+	{
+		ints = (ints * 10) + (*s - '0');
+	}
+	else if (ints > 0)
+	{
+		break;
+	}
+} while (*s++);
 
-        return (ints);
+return (ints);
 }
 
 /**
@@ -138,19 +139,19 @@ int _atoi(char *s)
  */
 void remove_comments(char *input)
 {
-        int idx = 0;
+int idx = 0;
 
-        if (input[idx] == '#')
-        {
-                input[idx] = '\0';
-        }
-        while (input[idx])
-        {
-                if (input[idx] == '#' && input[idx - 1] == ' ')
-                {
-                        break;
-                }
-                idx++;
-        }
-        input[idx] = '\0';
+if (input[idx] == '#')
+{
+	input[idx] = '\0';
+}
+while (input[idx])
+{
+	if (input[idx] == '#' && input[idx - 1] == ' ')
+	{
+		break;
+	}
+	idx++;
+}
+input[idx] = '\0';
 }
