@@ -11,7 +11,7 @@ char *_getline(void)
     static ssize_t buffer_pos = 0,bytes_read = 0;
 
     char *line = NULL;
-    ssize_t line_size = 0, t = 0, line_len, new_line_size;
+    ssize_t line_size = 0, t = 0;
 
     while (1)
     {
