@@ -1,10 +1,4 @@
 #include "shell.h"
-
-char *line = NULL;
-int status = 0;
-char **commands = NULL;
-char *my_shell = NULL;
-
 /**
  * main - The beginning of the shell program.
  *
@@ -16,6 +10,10 @@ char *my_shell = NULL;
 
 int main(int argc __attribute__((unused)), char **argv)
 {
+	char *line = NULL;
+	int status = 0;
+	char **commands = NULL;
+	char *my_shell = NULL;
 	size_t buff_size = 0;
 	char **cmd_tokens = NULL;
 	int index;
@@ -51,6 +49,5 @@ int main(int argc __attribute__((unused)), char **argv)
 		free(commands);
 	}
 	free(line);
-
 	return (status);
 }
