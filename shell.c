@@ -4,7 +4,6 @@ char *line = NULL;
 int status = 0;
 char **commands = NULL;
 char *my_shell = NULL;
-
 /**
  * main - The beginning of the shell program.
  *
