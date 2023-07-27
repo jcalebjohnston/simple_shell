@@ -67,5 +67,8 @@ char *get_environ_var(char *var);
 void print_env(char **cmd_tokens);
 void quit_shell(char **cmd_tokens);
 void *my_realloc(void *ptr, size_t old_size, size_t new_size);
-char *_getline(void);
+
+ssize_t fill_buffer(void);
+ssize_t read_data_from_buffer(char *line, ssize_t *bytes_read, size_t *n);
+ssize_t _getline(char **lineptr, size_t *n);
 #endif
